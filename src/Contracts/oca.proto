@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+service OCASync {
+  rpc GetPendingFills(GetPendingFillsRequest) returns (GetPendingFillsResponse);
+}
+
+message GetPendingFillsRequest {
+  string ocaId = 1;
+}
+
+message ContentFillsInfo {
+  string contentId = 2;
+  string source = 3;
+}
+
+message GetPendingFillsResponse {
+  repeated ContentFillsInfo pendingSync = 1;
+}
